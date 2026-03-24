@@ -831,6 +831,7 @@
     });
     document.getElementById('view-' + tab).classList.add('visible');
     document.getElementById('tab-' + tab).classList.add('active-' + tab);
+    localStorage.setItem('active_tab', tab);
   }
 
   // ── SAVE TO LOCALSTORAGE ──
@@ -858,7 +859,7 @@
       el.addEventListener('click', () => openExerciseModal(el.textContent.trim()));
     });
     applyCardOrder();
-    switchTab('breno');
+    switchTab(localStorage.getItem('active_tab') || 'breno');
   };
 
   // ── EXERCISE IMAGE MODAL ──
