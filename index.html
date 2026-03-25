@@ -228,74 +228,6 @@
     .ref-body ul { padding-left: 1.2rem; }
     .ref-body li { margin-bottom: 0.2rem; }
 
-    /* ── EXERCISE NAME CLICKABLE ── */
-    .ex-name {
-      cursor: pointer;
-      text-decoration: underline dotted 1px;
-      text-underline-offset: 3px;
-      transition: color 0.15s;
-    }
-    .ex-name:hover { color: #fff; }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      width: 100%;
-      max-width: 380px;
-      overflow: hidden;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .modal-title { font-size: 0.9rem; font-weight: 700; }
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 1.3rem;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0 0.2rem;
-    }
-    .modal-close:hover { color: var(--text); }
-
-    .modal-body {
-      min-height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .modal-body img {
-      max-width: 100%;
-      max-height: 280px;
-      border-radius: 8px;
-      object-fit: contain;
-    }
-    .modal-status {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      text-align: center;
-    }
   </style>
 </head>
 <body>
@@ -314,207 +246,214 @@
 ════════════════════════════════════════ -->
 <div id="view-breno" class="view">
 
-  <!-- Terça - Torso 1 -->
-  <div class="card" id="card-b-t1" data-order="0">
+  <!-- Segunda - Torso 1 (Treino Solo) -->
+  <div class="card" id="card-b-seg" data-order="0">
     <div class="card-header breno">
-      <span>💪 Terça — Torso 1</span>
+      <span>💪 Segunda — Torso 1 (Solo)</span>
       <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-b-t1')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-b-t1')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+        <button class="btn-card-action" onclick="togglePin('card-b-seg')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-b-seg')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
       </div>
     </div>
     <ul class="exercise-list">
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Supino Reto</div><div class="ex-sets">3x 6-8</div></div>
+        <div class="ex-info"><div class="ex-name">Supino Reto Barra</div><div class="ex-sets">3x 6-8</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_t1_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_t1_1', this)">Salvar</button>
+          <input type="text" id="b_seg_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_seg_1', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Puxada Alta</div><div class="ex-sets">3x 6-8</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_t1_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_t1_2', this)">Salvar</button>
+          <input type="text" id="b_seg_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_seg_2', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Supino Máquina / Crucifixo</div><div class="ex-sets">3x 8-10 — Falha</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_t1_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_t1_3', this)">Salvar</button>
+          <input type="text" id="b_seg_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_seg_3', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Remada Curvada / Máquina</div><div class="ex-sets">3x 8-10</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_t1_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_t1_4', this)">Salvar</button>
+          <input type="text" id="b_seg_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_seg_4', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Elevação Lateral</div><div class="ex-sets">4x 10-12 — Falha</div></div>
+        <div class="ex-info"><div class="ex-name">Elevação Lateral com Halteres</div><div class="ex-sets">4x 10-12 — RIR 1</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_t1_5" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_t1_5', this)">Salvar</button>
+          <input type="text" id="b_seg_5" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_seg_5', this)">Salvar</button>
         </div>
       </li>
     </ul>
   </div>
 
-  <!-- Quarta - Perna e Braço 1 -->
-  <div class="card" id="card-b-q1" data-order="1">
+  <!-- Terça - Braço e Perna 1 (Foco Quadríceps) -->
+  <div class="card" id="card-b-ter" data-order="1">
     <div class="card-header breno">
-      <span>🦵 Quarta — Perna e Braço 1</span>
+      <span>🦵 Terça — Braço e Perna 1 (Quad)</span>
       <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-b-q1')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-b-q1')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+        <button class="btn-card-action" onclick="togglePin('card-b-ter')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-b-ter')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
       </div>
     </div>
     <ul class="exercise-list">
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Agachamento</div><div class="ex-sets">3x 6-8</div></div>
+        <div class="ex-info"><div class="ex-name">Rosca Direta</div><div class="ex-sets">3x 6-8 — RIR 1</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_q1_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_1', this)">Salvar</button>
+          <input type="text" id="b_ter_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_1', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Leg Press / Extensora</div><div class="ex-sets">3x 8-10</div></div>
+        <div class="ex-info"><div class="ex-name">Rosca Scott / Martelo</div><div class="ex-sets">2x 10-12 — Leve / Pump</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_q1_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_2', this)">Salvar</button>
+          <input type="text" id="b_ter_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_2', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Mesa / Cadeira Flexora</div><div class="ex-sets">3x 8-10</div></div>
+        <div class="ex-info"><div class="ex-name">Agachamento Livre</div><div class="ex-sets">3x 6-8</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_q1_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_3', this)">Salvar</button>
+          <input type="text" id="b_ter_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_3', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Leg Press 45º</div><div class="ex-sets">3x 8-10 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_ter_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_4', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Cadeira Extensora</div><div class="ex-sets">3x 8-10 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_ter_5" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_5', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Tríceps Pulley</div><div class="ex-sets">3x 8-10 — RIR 1</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_ter_6" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_6', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Panturrilha</div><div class="ex-sets">3x 10-12 — Falha</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_q1_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_4', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Rosca Direta</div><div class="ex-sets">3x 6-8 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_q1_5" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_5', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Tríceps Pulley</div><div class="ex-sets">3x 8-10 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_q1_6" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_q1_6', this)">Salvar</button>
+          <input type="text" id="b_ter_7" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_ter_7', this)">Salvar</button>
         </div>
       </li>
     </ul>
   </div>
 
-  <!-- Sábado - Torso 2 -->
-  <div class="card" id="card-b-s2" data-order="2">
+  <!-- Sábado - Braço e Perna 2 (Foco Posterior) -->
+  <div class="card" id="card-b-sab" data-order="2">
     <div class="card-header breno">
-      <span>💪 Sábado — Torso 2</span>
+      <span>🦵 Sábado — Braço e Perna 2 (Post)</span>
       <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-b-s2')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-b-s2')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+        <button class="btn-card-action" onclick="togglePin('card-b-sab')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-b-sab')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
       </div>
     </div>
     <ul class="exercise-list">
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Supino Inclinado</div><div class="ex-sets">3x 6-8</div></div>
+        <div class="ex-info"><div class="ex-name">Stiff / RDL</div><div class="ex-sets">3x 6-8 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_1', this)">Salvar</button>
+          <input type="text" id="b_sab_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_sab_1', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Remada Halteres / Neutra</div><div class="ex-sets">3x 6-8</div></div>
+        <div class="ex-info"><div class="ex-name">Afundo / Búlgaro</div><div class="ex-sets">3x 8-10 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_2', this)">Salvar</button>
+          <input type="text" id="b_sab_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_sab_2', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Mesa / Cadeira Flexora</div><div class="ex-sets">3x 10-12 — Falha 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_sab_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_sab_3', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Tríceps Corda</div><div class="ex-sets">3x 8-10 — Falha</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_sab_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_sab_4', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Rosca Inclinada</div><div class="ex-sets">3x 8-10 — Falha</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_sab_5" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_sab_5', this)">Salvar</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Domingo - Torso 2 (Treino com Hta) -->
+  <div class="card" id="card-b-dom" data-order="3">
+    <div class="card-header breno">
+      <span>💪 Domingo — Torso 2 (com Hta)</span>
+      <div class="card-actions">
+        <button class="btn-card-action" onclick="togglePin('card-b-dom')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-b-dom')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+      </div>
+    </div>
+    <ul class="exercise-list">
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Supino Inclinado Halteres</div><div class="ex-sets">3x 6-8 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_dom_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_1', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Remada Máquina - Peito Apoiado</div><div class="ex-sets">3x 6-8 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="b_dom_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_2', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Paralelas / Crossover</div><div class="ex-sets">3x 8-10 — Falha</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_3', this)">Salvar</button>
+          <input type="text" id="b_dom_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_3', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Puxada Triângulo / Pulldown</div><div class="ex-sets">3x 8-10</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_4', this)">Salvar</button>
+          <input type="text" id="b_dom_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_4', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Crucifixo Inverso</div><div class="ex-sets">3x 10-12</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_5" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_5', this)">Salvar</button>
+          <input type="text" id="b_dom_5" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_5', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Elevação Lateral</div><div class="ex-sets">3x 10-12 — Falha</div></div>
+        <div class="ex-info"><div class="ex-name">Elevação Lateral na Polia</div><div class="ex-sets">2x 10-12 — RIR 1 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="b_s2_6" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_s2_6', this)">Salvar</button>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <!-- Domingo - Perna e Braço 2 -->
-  <div class="card" id="card-b-d2" data-order="3">
-    <div class="card-header breno">
-      <span>🦵 Domingo — Perna e Braço 2</span>
-      <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-b-d2')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-b-d2')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
-      </div>
-    </div>
-    <ul class="exercise-list">
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Stiff / RDL</div><div class="ex-sets">3x 6-8</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_d2_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_d2_1', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Afundo / Búlgaro</div><div class="ex-sets">3x 8-10</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_d2_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_d2_2', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Cadeira Extensora</div><div class="ex-sets">3x 10-12 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_d2_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_d2_3', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Tríceps Francês / Testa</div><div class="ex-sets">3x 8-10 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_d2_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_d2_4', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Rosca Inclinada / Scott</div><div class="ex-sets">3x 8-10 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="b_d2_5" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('b_d2_5', this)">Salvar</button>
+          <input type="text" id="b_dom_6" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('b_dom_6', this)">Salvar</button>
         </div>
       </li>
     </ul>
@@ -528,154 +467,140 @@
 ════════════════════════════════════════ -->
 <div id="view-hta" class="view">
 
-  <!-- Terça - Inferiores 1 -->
-  <div class="card" id="card-h-t1" data-order="0">
+  <!-- Terça - Inferiores 1 (Foco Quadríceps) -->
+  <div class="card" id="card-h-ter" data-order="0">
     <div class="card-header hta">
-      <span>🍑 Terça — Inferiores 1</span>
+      <span>🍑 Terça — Inferiores 1 (Quad)</span>
       <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-h-t1')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-h-t1')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+        <button class="btn-card-action" onclick="togglePin('card-h-ter')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-h-ter')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
       </div>
     </div>
     <ul class="exercise-list">
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Elevação Pélvica</div><div class="ex-sets">3x 6-8</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_t1_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_t1_1', this)">Salvar</button>
+          <input type="text" id="h_ter_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_ter_1', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Leg Press — Pés Altos</div><div class="ex-sets">3x 8-10</div></div>
+        <div class="ex-info"><div class="ex-name">Leg Press 45º - Pés Altos</div><div class="ex-sets">3x 8-10 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_t1_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_t1_2', this)">Salvar</button>
+          <input type="text" id="h_ter_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_ter_2', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Cadeira Extensora</div><div class="ex-sets">3x 10-12 — Falha 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_ter_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_ter_3', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Cadeira Abdutora</div><div class="ex-sets">3x 10-12 — Falha</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_t1_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_t1_3', this)">Salvar</button>
+          <input type="text" id="h_ter_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_ter_4', this)">Salvar</button>
         </div>
       </li>
       <li class="cardio-item">🔥 Cardio — 15 minutos</li>
     </ul>
   </div>
 
-  <!-- Quarta - Superiores 1 -->
-  <div class="card" id="card-h-q1" data-order="1">
+  <!-- Sábado - Inferiores 2 (Foco Posterior) -->
+  <div class="card" id="card-h-sab" data-order="1">
     <div class="card-header hta">
-      <span>💪 Quarta — Superiores 1</span>
+      <span>🍑 Sábado — Inferiores 2 (Post)</span>
       <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-h-q1')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-h-q1')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+        <button class="btn-card-action" onclick="togglePin('card-h-sab')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-h-sab')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
       </div>
     </div>
     <ul class="exercise-list">
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Supino Reto Halteres</div><div class="ex-sets">3x 6-8</div></div>
+        <div class="ex-info"><div class="ex-name">Stiff / RDL</div><div class="ex-sets">3x 6-8 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_q1_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_q1_1', this)">Salvar</button>
+          <input type="text" id="h_sab_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_sab_1', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Agachamento Búlgaro</div><div class="ex-sets">3x 8-10 cada perna 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_sab_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_sab_2', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Extensão de Glúteo Polia</div><div class="ex-sets">3x 10-12 — Falha</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_sab_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_sab_3', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Cadeira Flexora</div><div class="ex-sets">3x 10-12 — Falha 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_sab_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_sab_4', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="cardio-item">🔥 Cardio — 15 minutos</li>
+    </ul>
+  </div>
+
+  <!-- Domingo - Superiores Completo (Superset nos Braços) -->
+  <div class="card" id="card-h-dom" data-order="2">
+    <div class="card-header hta">
+      <span>💪 Domingo — Superiores (Superset)</span>
+      <div class="card-actions">
+        <button class="btn-card-action" onclick="togglePin('card-h-dom')" title="Priorizar">📌</button>
+        <button class="btn-card-action" onclick="toggleCollapse('card-h-dom')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
+      </div>
+    </div>
+    <ul class="exercise-list">
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Supino Reto Halteres</div><div class="ex-sets">3x 8-10 🤝</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_dom_1" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_1', this)">Salvar</button>
+        </div>
+      </li>
+      <li class="exercise-item">
+        <div class="ex-info"><div class="ex-name">Puxada Alta</div><div class="ex-sets">3x 8-10</div></div>
+        <div class="ex-controls">
+          <input type="text" id="h_dom_2" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_2', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
         <div class="ex-info"><div class="ex-name">Desenvolvimento Halteres</div><div class="ex-sets">3x 8-10</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_q1_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_q1_2', this)">Salvar</button>
+          <input type="text" id="h_dom_3" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_3', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Elevação Lateral</div><div class="ex-sets">3x 10-12 — Falha</div></div>
+        <div class="ex-info"><div class="ex-name">Remada Máquina - Peito Apoiado</div><div class="ex-sets">3x 8-10 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_q1_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_q1_3', this)">Salvar</button>
+          <input type="text" id="h_dom_4" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_4', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Puxada Alta</div><div class="ex-sets">2x 8-10</div></div>
+        <div class="ex-info"><div class="ex-name">Elevação Lateral na Polia</div><div class="ex-sets">3x 10-12 — RIR 1 🤝</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_q1_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_q1_4', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="cardio-item">🔥 Cardio — 15 minutos</li>
-    </ul>
-  </div>
-
-  <!-- Sábado - Inferiores 2 -->
-  <div class="card" id="card-h-s2" data-order="2">
-    <div class="card-header hta">
-      <span>🍑 Sábado — Inferiores 2</span>
-      <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-h-s2')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-h-s2')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
-      </div>
-    </div>
-    <ul class="exercise-list">
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Stiff / RDL</div><div class="ex-sets">3x 6-8</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_s2_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_s2_1', this)">Salvar</button>
+          <input type="text" id="h_dom_5" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_5', this)">Salvar</button>
         </div>
       </li>
       <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Agachamento Búlgaro</div><div class="ex-sets">3x 8-10 cada perna</div></div>
+        <div class="ex-info"><div class="ex-name">⚡ Tríceps Pulley + Rosca Martelo</div><div class="ex-sets">3x 10-12 — SUPERSET</div></div>
         <div class="ex-controls">
-          <input type="text" id="h_s2_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_s2_2', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Extensão de Glúteo Polia</div><div class="ex-sets">2x 10-12 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_s2_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_s2_3', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="cardio-item">🔥 Cardio — 15 minutos</li>
-    </ul>
-  </div>
-
-  <!-- Domingo - Superiores 2 -->
-  <div class="card" id="card-h-d2" data-order="3">
-    <div class="card-header hta">
-      <span>💪 Domingo — Superiores 2</span>
-      <div class="card-actions">
-        <button class="btn-card-action" onclick="togglePin('card-h-d2')" title="Priorizar">📌</button>
-        <button class="btn-card-action" onclick="toggleCollapse('card-h-d2')" title="Minimizar"><span class="btn-collapse-icon">▼</span></button>
-      </div>
-    </div>
-    <ul class="exercise-list">
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Supino Inclinado Halteres</div><div class="ex-sets">3x 6-8</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_d2_1" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_d2_1', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Crucifixo Reto / Máquina</div><div class="ex-sets">3x 8-10 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_d2_2" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_d2_2', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Elevação Lateral</div><div class="ex-sets">3x 10-12 — Falha</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_d2_3" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_d2_3', this)">Salvar</button>
-        </div>
-      </li>
-      <li class="exercise-item">
-        <div class="ex-info"><div class="ex-name">Remada Curvada</div><div class="ex-sets">2x 8-10</div></div>
-        <div class="ex-controls">
-          <input type="text" id="h_d2_4" placeholder="Peso">
-          <button class="btn-save" onclick="saveData('h_d2_4', this)">Salvar</button>
+          <input type="text" id="h_dom_6" placeholder="Peso">
+          <button class="btn-save" onclick="saveData('h_dom_6', this)">Salvar</button>
         </div>
       </li>
       <li class="cardio-item">🔥 Cardio — 15 minutos</li>
@@ -753,23 +678,10 @@
 </div><!-- /view-diet -->
 
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
-  <div class="modal-box">
-    <div class="modal-header">
-      <span class="modal-title" id="modal-title">Exercício</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <div class="modal-body" id="modal-body">
-      <span class="modal-status">Carregando...</span>
-    </div>
-  </div>
-</div>
-
 <script>
   // ── CARD STATES (collapse / pin) ──
-  const CARD_IDS = ['card-b-t1','card-b-q1','card-b-s2','card-b-d2',
-                    'card-h-t1','card-h-q1','card-h-s2','card-h-d2'];
+  const CARD_IDS = ['card-b-seg','card-b-ter','card-b-sab','card-b-dom',
+                    'card-h-ter','card-h-sab','card-h-dom'];
 
   function loadCardStates() {
     return JSON.parse(localStorage.getItem('card_states') || '{}');
@@ -854,68 +766,10 @@
       const saved = localStorage.getItem(input.id);
       if (saved !== null) input.value = saved;
     });
-    // Bind exercise image clicks
-    document.querySelectorAll('.ex-name').forEach(el => {
-      el.addEventListener('click', () => openExerciseModal(el.textContent.trim()));
-    });
     applyCardOrder();
     switchTab(localStorage.getItem('active_tab') || 'breno');
   };
 
-  // ── EXERCISE IMAGE MODAL ──
-  // Coloque as imagens na pasta img/ com os nomes abaixo (gif ou jpg/png)
-  const IMG_MAP = {
-    'Supino Reto':                  'img/supino-reto.gif',
-    'Supino Inclinado':             'img/supino-inclinado.gif',
-    'Supino Máquina / Crucifixo':   'img/crucifixo.gif',
-    'Puxada Alta':                  'img/puxada-alta.gif',
-    'Puxada Triângulo / Pulldown':  'img/puxada-triangulo.gif',
-    'Remada Curvada / Máquina':     'img/remada-curvada.gif',
-    'Remada Halteres / Neutra':     'img/remada-halteres.gif',
-    'Elevação Lateral':             'img/elevacao-lateral.gif',
-    'Crucifixo Inverso':            'img/crucifixo-inverso.gif',
-    'Paralelas / Crossover':        'img/paralelas.gif',
-    'Agachamento':                  'img/agachamento.gif',
-    'Leg Press / Extensora':        'img/leg-press.gif',
-    'Mesa / Cadeira Flexora':       'img/cadeira-flexora.gif',
-    'Cadeira Extensora':            'img/cadeira-extensora.gif',
-    'Panturrilha':                  'img/panturrilha.gif',
-    'Rosca Direta':                 'img/rosca-direta.gif',
-    'Rosca Inclinada / Scott':      'img/rosca-inclinada.gif',
-    'Tríceps Pulley':               'img/triceps-pulley.gif',
-    'Tríceps Francês / Testa':      'img/triceps-frances.gif',
-    'Stiff / RDL':                  'img/stiff.gif',
-    'Afundo / Búlgaro':             'img/afundo-bulgaro.gif',
-    'Elevação Pélvica':             'img/elevacao-pelvica.gif',
-    'Leg Press — Pés Altos':        'img/leg-press.gif',
-    'Cadeira Abdutora':             'img/cadeira-abdutora.gif',
-    'Agachamento Búlgaro':          'img/afundo-bulgaro.gif',
-    'Extensão de Glúteo Polia':     'img/extensao-gluteo.gif',
-    'Supino Reto Halteres':         'img/supino-reto-halteres.gif',
-    'Desenvolvimento Halteres':     'img/desenvolvimento.gif',
-    'Supino Inclinado Halteres':    'img/supino-inclinado-halteres.gif',
-    'Crucifixo Reto / Máquina':     'img/crucifixo.gif',
-    'Remada Curvada':               'img/remada-curvada.gif',
-  };
-
-  function openExerciseModal(name) {
-    document.getElementById('modal-title').textContent = name;
-    const src = IMG_MAP[name];
-    document.getElementById('modal-body').innerHTML = src
-      ? `<img src="${src}" alt="${name}" />`
-      : `<span class="modal-status">Sem imagem cadastrada para<br><strong>${name}</strong></span>`;
-    document.getElementById('modal').classList.add('open');
-  }
-
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-  }
-
-  function closeModalOnOverlay(e) {
-    if (e.target === document.getElementById('modal')) closeModal();
-  }
-
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
