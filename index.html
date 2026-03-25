@@ -228,6 +228,73 @@
     .ref-body ul { padding-left: 1.2rem; }
     .ref-body li { margin-bottom: 0.2rem; }
 
+    /* ── BACKUP SECTION ── */
+    .backup-section {
+      max-width: 640px;
+      margin: 2rem auto 1rem;
+      padding: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .backup-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      text-align: center;
+    }
+    .backup-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .backup-controls input[type="file"] {
+      display: none;
+    }
+    .btn-backup {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-backup:active { transform: scale(0.97); }
+    .btn-export {
+      background: #1565c0;
+      color: #fff;
+    }
+    .btn-export:hover { background: #1976d2; }
+    .btn-import {
+      background: #6a1b9a;
+      color: #fff;
+    }
+    .btn-import:hover { background: #7b1fa2; }
+    .btn-select {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-select:hover { background: #333; }
+    .backup-tip {
+      margin-top: 0.75rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .file-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
   </style>
 </head>
 <body>
@@ -678,6 +745,22 @@
 </div><!-- /view-diet -->
 
 
+<!-- ════════════════════════════════════════
+     BACKUP SECTION
+════════════════════════════════════════ -->
+<section class="backup-section">
+  <div class="backup-title">💾 Backup de Dados</div>
+  <div class="backup-controls">
+    <button class="btn-backup btn-export" onclick="exportData()">📥 Exportar</button>
+    <input type="file" id="import-file" accept=".json,.txt" onchange="updateFileName()">
+    <button class="btn-backup btn-select" onclick="document.getElementById('import-file').click()">📁 Selecionar</button>
+    <span class="file-name" id="file-name">Nenhum arquivo</span>
+    <button class="btn-backup btn-import" onclick="importData()">📤 Importar</button>
+  </div>
+  <div class="backup-tip">⚠️ Recomendado fazer backup semanal dos dados.</div>
+</section>
+
+
 <script>
   // ── CARD STATES (collapse / pin) ──
   const CARD_IDS = ['card-b-seg','card-b-ter','card-b-sab','card-b-dom',
@@ -769,6 +852,59 @@
     applyCardOrder();
     switchTab(localStorage.getItem('active_tab') || 'breno');
   };
+
+  // ── BACKUP: EXPORT DATA ──
+  function exportData() {
+    try {
+      const data = {};
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        data[key] = localStorage.getItem(key);
+      }
+      const json = JSON.stringify(data, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'treino_backup.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (e) {
+      alert('Erro ao exportar dados');
+      console.error(e);
+    }
+  }
+
+  // ── BACKUP: UPDATE FILE NAME ──
+  function updateFileName() {
+    const input = document.getElementById('import-file');
+    const label = document.getElementById('file-name');
+    label.textContent = input.files[0] ? input.files[0].name : 'Nenhum arquivo';
+  }
+
+  // ── BACKUP: IMPORT DATA ──
+  function importData() {
+    const input = document.getElementById('import-file');
+    if (!input.files[0]) {
+      alert('Selecione um arquivo primeiro');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        for (const key in data) {
+          localStorage.setItem(key, data[key]);
+        }
+        alert('Dados importados com sucesso!');
+        location.reload();
+      } catch (err) {
+        alert('Arquivo inválido');
+        console.error(err);
+      }
+    };
+    reader.readAsText(input.files[0]);
+  }
 
 </script>
 </body>
